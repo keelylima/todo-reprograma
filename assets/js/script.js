@@ -1,21 +1,5 @@
 $("ul").on("click", "li", function () {
     $(this).toggleClass("completed");
-
-    // if ($(this).css("color") === "rgb(128, 128, 128)") {
-    //     $(this).css({
-    //         color: "black",
-    //         textDecoration: "none"
-    //     })
-    // } else {
-    //     $(this).css({
-    //         color: "grey",
-    //         textDecoration: "line-through"
-    //     })
-    // }
-
-
-    // // $(this).css("color", "grey");
-    // // $(this).css("text-decoration", "line-through")
 })
 
 $("ul").on("click", "span", function (event) {
@@ -58,26 +42,6 @@ fetch(`http://localhost:3000/`)
     })
 
 
-
-// const btn = document.querySelector('button');
-// // console.log(btn)
-
-// btn.addEventListener('click', ()=> {
-//     const tarefa = document.querySelector('#tarefa').value;
-
-//     fetch('http://localhost:3000/', {
-//         method: 'POST',
-//         headers: {
-//             'Accept': 'applicarion/json',
-//             'Content-Type': 'application/json',
-//             "Access-Control-Allow-Origin": "*"  
-//         },
-//         body: JSON.stringify({
-//             'tarefa': tarefa
-//         })
-//     })
-// })
-
 //POST
 
 $("#tarefa").keydown(function (event) {
@@ -97,5 +61,5 @@ $("#tarefa").keydown(function (event) {
             })
         })
     }
-});
+})
 

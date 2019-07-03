@@ -38,19 +38,6 @@ $(".fa-plus").click(function () {
 });
 
 
-//http request
-
-// $.ajax({
-//     method: "POST",
-//     url: "cadastrar.php",
-//     data: { nome: "Pedro", email: "pedro@email.com" }
-// })
-
-// $.get("http://localhost:7000/", function(data){
-//     console.log(data);
-// });
-
-
 //GET
 const li = document.querySelectorAll('li');
 

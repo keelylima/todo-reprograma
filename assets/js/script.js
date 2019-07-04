@@ -2,7 +2,7 @@ $("ul").on("click", "li", function () {
     $(this).toggleClass("completed");
 })
 
-$("ul").on("click", "span", function (event) {
+$("ul").on("click", "button", function (event) {
     $(this).parent().fadeOut(500, function () {
         $(this).remove();
     })
@@ -13,7 +13,7 @@ $("input[type='text']").keypress(function (event) {
     if (event.which === 13) {
         let todoText = $(this).val();
         $(this).val(""); //clear input
-        $("ul").append(`<li><span><i class="fa fa-trash"></i></span> ${todoText}</li>`)
+        $("ul").append(`<li><button><i class="fa fa-trash"></i></button> ${todoText}</li>`)
     }
 });
 
@@ -23,7 +23,7 @@ $(".fa-plus").click(function () {
 
 
 //GET
-const li = document.querySelectorAll('li');
+// const li = document.querySelectorAll('li');
 
 fetch(`http://localhost:3000/`)
     .then((response) => {
@@ -33,12 +33,31 @@ fetch(`http://localhost:3000/`)
         data.forEach((tarefa) => {
             const ul = document.querySelector('ul');
             const li = document.createElement('li');
+            const btn = document.createElement('button');
+            const i = document.createElement('i');
 
-            li.innerHTML = `<span><i class="fa fa-trash"></i></span> ${tarefa.tarefa}`
+            li.innerHTML = `${tarefa.tarefa}`
+            li.appendChild(btn);
+            btn.appendChild(i);
+            i.classList.add('fa');
+            i.classList.add('fa-trash');
             ul.appendChild(li);
 
-
+            btn.setAttribute('data-id', tarefa._id);
+            btn.addEventListener('click', () => {
+                fetch(`http://localhost:3000/${tarefa._id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                })
+                .then(() => {
+                    li.remove();
+                })
+            })
         })
+
     })
 
 
@@ -48,7 +67,6 @@ $("#tarefa").keydown(function (event) {
 
     if (event.which === 13) {
         const tarefa = event.target.value;
-
         fetch('http://localhost:3000/', {
             method: 'POST',
             headers: {

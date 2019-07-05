@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,20 +11,41 @@
     <script type="text/javascript" src="/assets/js/libs/jquery-3.4.1.min.js"></script>
     <script src="https://kit.fontawesome.com/89593cc5ec.js"></script>
 </head>
+
 <body>
+    <header>
+        <div class="header">
+            <p>Logo</p>
+        </div>
+    </header>
+    <div class="container">
 
-    <h1><a href="home.html">Pagina Home</a></h1>
-    <div id="container">
-        <h1>To-do List<i class="fa fa-plus"></i></h1>
-        <input type="text" id="tarefa" placeholder="Add New Todo">
+        <!-- <section class="intro">
+            <div>
+                <h1>O Lembrete te ajuda a organizar e planejar suas atividades diárias, de forma rápida e ágil!</h1>
+            </div>
+            <div>
+                <img src="./img/intro.png" alt="" srcset="">
+            </div>
+        </section> -->
+        <div class="container-todo">
+            <h2>To do List<i class="fa fa-plus"></i></h2>
+            <input type="text" id="tarefa" placeholder="New To do">
 
-        <ul>
-            <li><button><i class="fa fa-trash"></i></button>Buy a car</li>
-            <li><button><i class="fa fa-trash"></i></button>Study JS</li>
-            <li><button><i class="fa fa-trash"></i></button>Read a Book</li>
-        </ul>
+            <ul>
+                <li><button><i class="fa fa-trash"></i></button>Comprar um carro</li>
+                <li><button><i class="fa fa-trash"></i></button>Ler um livro</li>
+                <li><button><i class="fa fa-trash"></i></button>Fazer uma caminhada</li>
+            </ul>
+        </div>
+
+        <footer class="footer">
+            <!-- <p>Projeto Desenvolvido por Kelly Christina</p>
+            <p>Todos os Direitos Reservados - ©</p> -->
+        </footer>
     </div>
 
-<script src="/assets/js/script.js"></script>
+    <script src="/assets/js/script.js"></script>
 </body>
+
 </html>

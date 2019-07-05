@@ -1,16 +1,53 @@
+body, p, h1, h2, ul, li, a {
+    padding: 0;
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+}
+
 * {
     box-sizing: border-box;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: #1FA2FF;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #A6FFCB, #12D8FA, #1FA2FF);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #A6FFCB, #12D8FA, #1FA2FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    /* background: #3494E6;  fallback for old browsers */
+    /* background: -webkit-linear-gradient(to right, #EC6EAD, #3494E6);  Chrome 10-25, Safari 5.1-6 */
+    /* background: linear-gradient(to right, #EC6EAD, #3494E6); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-h1 {
-    background: #2980b9;
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.container-todo {
+    max-width: 500px;
+    margin: 100px auto;
+    padding: 0px 20px;
+}
+
+.header {
+  background: #6c63ff;
+  padding: 20px;
+}
+
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer p {
+    color: #fff;
+    line-height: 24px;
+}
+
+h2 {
+    background: #6c63ff;
     color: #fff;
     text-transform: uppercase;
     margin: 0;
@@ -30,6 +67,7 @@ li {
     height: 40px;
     line-height: 40px;
     color: #666;
+    cursor: pointer;
 }
 
 li:nth-child(2n) {
@@ -37,7 +75,7 @@ li:nth-child(2n) {
 }
 
 button {
-    background: #e74c3c;
+    background: #6c63ff;
     height: 40px;
     width: 0px;
     color: #fff;
@@ -48,6 +86,7 @@ button {
     opacity: 0;
     border: none;
     float: left;
+    cursor: pointer;
 }
 
 li:hover button {
@@ -57,24 +96,17 @@ li:hover button {
 
 input {
 	font-size: 18px;
-	color: #2980b9;
+	color: #6c63ff;
 	background-color: #f7f7f7;
 	width: 100%;
-	padding: 13px 13px 13px 20px;
+	padding: 13px 13px 13px 30px;
 	border: 3px solid rgba(0,0,0,0);
 }
 
 input:focus{
 	background: #fff;
-	border: 3px solid #2980b9;
+	border: 3px solid #6c63ff;
 	outline: none;
-}
-
-#container {
-    box-shadow: 0 0 3px rgba(0,0,0, 0.1);
-    width: 360px;
-    background: #f7f7f7;
-    margin: 100px auto;
 }
 
 .completed {
@@ -84,4 +116,8 @@ input:focus{
 
 .fa-plus {
     float: right;
+}
+
+.intro {
+    display: flex;
 }

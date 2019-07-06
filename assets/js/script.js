@@ -17,7 +17,7 @@ $("input[type='text']").keypress(function (event) {
     }
 });
 
-$(".btn-input").click(function() {
+$(".btn-input").click(function () {
     let todoTextClick = $("#tarefa").val();
     $("ul").append(`<li><button><i class="fa fa-trash"></i></button> ${todoTextClick}</li>`);
 })
@@ -52,11 +52,18 @@ fetch(`http://localhost:3000/`)
                         'Content-Type': 'application/json'
                     },
                 })
-                .then(() => {
-                    li.remove();
-                })
+                    .then(() => {
+                        ul.removeChild(li);
+                    })
+
+                    .catch(function (erro) {
+                        console.log(erro);
+                    })
             })
         })
+    })
+    .catch(function (erro) {
+        console.log(erro);
     })
 
 
@@ -81,9 +88,9 @@ $("#tarefa").keydown(function (event) {
 })
 
 
-$(".btn-input").click(function() {
+$(".btn-input").click(function () {
     let textInput = $("input[type='text']").val()
-    
+
     fetch('http://localhost:3000/', {
         method: 'POST',
         headers: {

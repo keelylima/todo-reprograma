@@ -17,14 +17,13 @@ $("input[type='text']").keypress(function (event) {
     }
 });
 
-$(".fa-plus").click(function () {
-    $("input[type='text']").fadeToggle();
-});
+$(".btn-input").click(function() {
+    let todoTextClick = $("#tarefa").val();
+    $("ul").append(`<li><button><i class="fa fa-trash"></i></button> ${todoTextClick}</li>`);
+})
 
 
 //GET
-// const li = document.querySelectorAll('li');
-
 fetch(`http://localhost:3000/`)
     .then((response) => {
         return response.json();
@@ -44,7 +43,8 @@ fetch(`http://localhost:3000/`)
             ul.appendChild(li);
 
             btn.setAttribute('data-id', tarefa._id);
-            btn.addEventListener('click', () => {
+            btn.addEventListener('click', (event) => {
+                event.preventDefault();
                 fetch(`http://localhost:3000/${tarefa._id}`, {
                     method: 'DELETE',
                     headers: {
@@ -57,7 +57,6 @@ fetch(`http://localhost:3000/`)
                 })
             })
         })
-
     })
 
 
@@ -80,4 +79,26 @@ $("#tarefa").keydown(function (event) {
         })
     }
 })
+
+
+$(".btn-input").click(function() {
+    let textInput = $("input[type='text']").val()
+    
+    fetch('http://localhost:3000/', {
+        method: 'POST',
+        headers: {
+            'Accept': 'applicarion/json',
+            'Content-Type': 'application/json',
+            "Access-Control-Allow-Origin": "*"
+        },
+        body: JSON.stringify({
+            'tarefa': textInput
+        })
+    })
+
+    let previous = this.previousElementSibling;
+    previous.value = "";
+})
+
+
 

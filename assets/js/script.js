@@ -1,27 +1,26 @@
-$("ul").on("click", "li", function () {
-    $(this).toggleClass("completed");
-})
+// $("ul").on("click", "li", function () {
+//     $(this).toggleClass("completed");
+// })
 
-$("ul").on("click", "button", function (event) {
-    $(this).parent().fadeOut(500, function () {
-        $(this).remove();
-    })
-    event.stopPropagation();
-});
+// $("ul").on("click", "button", function (event) {
+//     $(this).parent().fadeOut(500, function () {
+//         $(this).remove();
+//     })
+//     event.stopPropagation();
+// });
 
-$("input[type='text']").keypress(function (event) {
-    if (event.which === 13) {
-        let todoText = $(this).val();
-        $(this).val(""); //clear input
-        $("ul").append(`<li><button><i class="fa fa-trash"></i></button> ${todoText}</li>`)
-    }
-});
+// $("input[type='text']").keypress(function (event) {
+//     if (event.which === 13) {
+//         let todoText = $(this).val();
+//         $(this).val(""); //clear input
+//         $("ul").append(`<li><button><i class="fa fa-trash"></i></button> ${todoText}</li>`)
+//     }
+// });
 
-$(".btn-input").click(function () {
-    let todoTextClick = $("#tarefa").val();
-    $("ul").append(`<li><button><i class="fa fa-trash"></i></button> ${todoTextClick}</li>`);
-})
-
+// $(".btn-input").click(function () {
+//     let todoTextClick = $("#tarefa").val();
+//     $("ul").append(`<li><button><i class="fa fa-trash"></i></button> ${todoTextClick}</li>`);
+// })
 
 //GET
 fetch(`http://localhost:3000/`)
@@ -30,21 +29,25 @@ fetch(`http://localhost:3000/`)
     })
     .then((data) => {
         data.forEach((tarefa) => {
-            const ul = document.querySelector('ul');
+
+            const containerTodo = document.querySelector('.container-todo')
+
+            const ul = document.createElement('ul');
             const li = document.createElement('li');
             const btn = document.createElement('button');
             const i = document.createElement('i');
 
+            containerTodo.appendChild(ul)
+            ul.appendChild(li);
             li.innerHTML = `${tarefa.tarefa}`
             li.appendChild(btn);
             btn.appendChild(i);
             i.classList.add('fa');
-            i.classList.add('fa-trash');
-            ul.appendChild(li);
+            i.classList.add('fa-trash')
 
             btn.setAttribute('data-id', tarefa._id);
-            btn.addEventListener('click', (event) => {
-                event.preventDefault();
+            btn.addEventListener('click', () => {
+                console.log('clicou')
                 fetch(`http://localhost:3000/${tarefa._id}`, {
                     method: 'DELETE',
                     headers: {
@@ -59,6 +62,7 @@ fetch(`http://localhost:3000/`)
                     .catch(function (erro) {
                         console.log(erro);
                     })
+
             })
         })
     })
@@ -84,6 +88,7 @@ $("#tarefa").keydown(function (event) {
                 'tarefa': tarefa
             })
         })
+        $(this).val("")
     }
 })
 

@@ -1,26 +1,14 @@
-// $("ul").on("click", "li", function () {
-//     $(this).toggleClass("completed");
-// })
+$("ul").on("click", "li", function () {
+    $(this).toggleClass("completed");
+})
 
-// $("ul").on("click", "button", function (event) {
-//     $(this).parent().fadeOut(500, function () {
-//         $(this).remove();
-//     })
-//     event.stopPropagation();
-// });
+$("ul").on("click", ".fixed", function (event) {
+    $(this).parent().fadeOut(500, function () {
+        $(this).remove();
+    })
+    event.stopPropagation();
+});
 
-// $("input[type='text']").keypress(function (event) {
-//     if (event.which === 13) {
-//         let todoText = $(this).val();
-//         $(this).val(""); //clear input
-//         $("ul").append(`<li><button><i class="fa fa-trash"></i></button> ${todoText}</li>`)
-//     }
-// });
-
-// $(".btn-input").click(function () {
-//     let todoTextClick = $("#tarefa").val();
-//     $("ul").append(`<li><button><i class="fa fa-trash"></i></button> ${todoTextClick}</li>`);
-// })
 
 //GET
 fetch(`http://localhost:3000/`)
@@ -44,6 +32,10 @@ fetch(`http://localhost:3000/`)
             btn.appendChild(i);
             i.classList.add('fa');
             i.classList.add('fa-trash')
+
+            $("ul").on("click", "li", function () {
+                $(this).toggleClass("completed");
+            })
 
             btn.setAttribute('data-id', tarefa._id);
             btn.addEventListener('click', () => {
@@ -89,6 +81,7 @@ $("#tarefa").keydown(function (event) {
             })
         })
         $(this).val("")
+        location.reload();
     }
 })
 
@@ -105,11 +98,12 @@ $(".btn-input").click(function () {
         },
         body: JSON.stringify({
             'tarefa': textInput
-        })
+        }) 
     })
 
     let previous = this.previousElementSibling;
     previous.value = "";
+    location.reload()
 })
 
 

@@ -9,6 +9,8 @@ $("ul").on("click", ".fixed", function (event) {
     event.stopPropagation();
 });
 
+// $("li:nth-child(2n)").css("background-color", "red")
+
 
 //GET
 fetch(`http://localhost:3000/`)
@@ -31,11 +33,13 @@ fetch(`http://localhost:3000/`)
             li.appendChild(btn);
             btn.appendChild(i);
             i.classList.add('fa');
-            i.classList.add('fa-trash')
+            i.classList.add('fa-trash');
 
             $("ul").on("click", "li", function () {
                 $(this).toggleClass("completed");
             })
+
+            // $("li:nth-child(2n)").css("background-color", "red")
 
             btn.setAttribute('data-id', tarefa._id);
             btn.addEventListener('click', () => {
@@ -81,6 +85,7 @@ $("#tarefa").keydown(function (event) {
             })
         })
         $(this).val("")
+        $("li:nth-child(2n)").css("background-color", "red")
         location.reload();
     }
 })

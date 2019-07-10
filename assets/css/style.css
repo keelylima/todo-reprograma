@@ -37,10 +37,6 @@ li {
     cursor: pointer;
     border-bottom: 1px solid #6c63ff;
 }
-/* 
-li:nth-child(2n) {
-    background-color: #f7f7f7 !important;
-} */
 
 button {
     background: #6c63ff;
@@ -100,6 +96,19 @@ input:focus{
 .intro {
     display: flex;
     align-items: center;
+    padding: 15px;
+}
+
+@media only screen and (max-width: 750px) {
+
+    .intro {
+        flex-wrap: wrap;
+    }
+        .intro-h1 {
+            width: 500px;
+            text-align: center;
+            margin: 0 auto;
+        }
 }
 
 .intro-img {
@@ -111,6 +120,22 @@ input:focus{
     align-items: center;
     margin-top: 100px;
     justify-content: space-between;
+    padding: 15px;
+}
+
+@media only screen and (max-width: 750px) {
+    .content {
+        flex-wrap: wrap;
+    }
+
+    .content p {
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .content img {
+        margin: 0 auto;
+    }
 }
 
 .content img {
@@ -151,24 +176,6 @@ input:focus{
     text-align: center;
 }
 
-.todo-h2::after {
-    position: absolute;
-    content: '🡓';
-    right: 770px;
-    animation: seta 0.5s ease-in 0s infinite alternate;
-    font-weight: bold;
-
-}
-
-@keyframes seta {
-    from {
-        top: 1450px;
-    }
-
-    to {
-        top: 1470px;
-    }
-}
 
 .completed {
     color: grey;

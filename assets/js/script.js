@@ -14,7 +14,7 @@ $("ul").on("click", ".fixed", function (event) {
 
 //GET
 fetch(`https://app-server-todo.herokuapp.com/`, {
-    mode: 'cors',
+    mode: 'no-cors',
     headers: {
     'Access-Control-Allow-Origin':'*'
   }

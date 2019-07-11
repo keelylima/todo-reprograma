@@ -10,7 +10,7 @@ $("ul").on("click", ".fixed", function (event) {
 });
 
 //GET
-fetch(`http://localhost:3000/`,)
+fetch(`https://app-server-todo.herokuapp.com/`,)
     .then((response) => {
         return response.json();
     })
@@ -39,7 +39,7 @@ fetch(`http://localhost:3000/`,)
             btn.setAttribute('data-id', tarefa._id);
             btn.addEventListener('click', () => {
                 console.log('clicou')
-                fetch(`http://localhost:3000/${tarefa._id}`, {
+                fetch(`https://app-server-todo.herokuapp.com/${tarefa._id}`, {
                     method: 'DELETE',
                     headers: {
                         'Accept': 'application/json',
@@ -68,7 +68,7 @@ $("#tarefa").keydown(function (event) {
 
     if (event.which === 13) {
         const tarefa = event.target.value;
-        fetch('http://localhost:3000/', {
+        fetch('https://app-server-todo.herokuapp.com/', {
             method: 'POST',
             headers: {
                 'Accept': 'applicarion/json',
@@ -88,7 +88,7 @@ $("#tarefa").keydown(function (event) {
 $(".btn-input").click(function () {
     let textInput = $("input[type='text']").val()
 
-    fetch('http://localhost:3000/', {
+    fetch('https://app-server-todo.herokuapp.com/', {
         method: 'POST',
         headers: {
             'Accept': 'applicarion/json',

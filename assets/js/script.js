@@ -9,16 +9,8 @@ $("ul").on("click", ".fixed", function (event) {
     event.stopPropagation();
 });
 
-// $("li:nth-child(2n)").css("background-color", "red")
-
-
 //GET
-fetch(`https://app-server-todo.herokuapp.com/`, {
-    mode: 'no-cors',
-    headers: {
-    'Access-Control-Allow-Origin':'*'
-  }
-})
+fetch(`http://localhost:3000/`,)
     .then((response) => {
         return response.json();
     })
@@ -44,12 +36,10 @@ fetch(`https://app-server-todo.herokuapp.com/`, {
                 $(this).toggleClass("completed");
             })
 
-            // $("li:nth-child(2n)").css("background-color", "red")
-
             btn.setAttribute('data-id', tarefa._id);
             btn.addEventListener('click', () => {
                 console.log('clicou')
-                fetch(`https://app-server-todo.herokuapp.com/${tarefa._id}`, {
+                fetch(`http://localhost:3000/${tarefa._id}`, {
                     method: 'DELETE',
                     headers: {
                         'Accept': 'application/json',
@@ -78,7 +68,7 @@ $("#tarefa").keydown(function (event) {
 
     if (event.which === 13) {
         const tarefa = event.target.value;
-        fetch('https://app-server-todo.herokuapp.com/', {
+        fetch('http://localhost:3000/', {
             method: 'POST',
             headers: {
                 'Accept': 'applicarion/json',
@@ -90,7 +80,6 @@ $("#tarefa").keydown(function (event) {
             })
         })
         $(this).val("")
-        $("li:nth-child(2n)").css("background-color", "red")
         location.reload();
     }
 })
@@ -99,7 +88,7 @@ $("#tarefa").keydown(function (event) {
 $(".btn-input").click(function () {
     let textInput = $("input[type='text']").val()
 
-    fetch('https://app-server-todo.herokuapp.com/', {
+    fetch('http://localhost:3000/', {
         method: 'POST',
         headers: {
             'Accept': 'applicarion/json',

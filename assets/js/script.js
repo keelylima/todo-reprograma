@@ -13,7 +13,12 @@ $("ul").on("click", ".fixed", function (event) {
 
 
 //GET
-fetch(`https://app-server-todo.herokuapp.com/`)
+fetch(`https://app-server-todo.herokuapp.com/`, {
+    mode: 'cors',
+    headers: {
+    'Access-Control-Allow-Origin':'*'
+  }
+})
     .then((response) => {
         return response.json();
     })

@@ -23,6 +23,7 @@ h1 {
     font-weight: normal;
     font-size: 1.875em;
     line-height: 45px;
+    margin-top: 100px;
 }
 
 h1 span {
@@ -81,6 +82,10 @@ input:focus{
 .header {
   background: #6c63ff;
   padding: 20px;
+  -webkit-box-shadow: 0px 4px 8px 2px rgba(0,0,0,0.26); 
+  box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.26);
+  position: fixed;
+  width: 100%;
 }
 
 .header p {

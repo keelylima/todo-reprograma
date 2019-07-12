@@ -68,7 +68,6 @@ input {
 
 input:focus{
 	background: #fff;
-	border: 3px solid #6c63ff;
 	outline: none;
 }
 
@@ -196,28 +195,25 @@ input:focus{
 
 .form {
     background: #f7f7f7; 
-    position: relative;
+    display: flex;
+    align-items: center;
 }
-
-.form:focus {
-    border: 2px solid #6c63ff;
-}
-
 
 .btn-input {
-    background: transparent;
+    width: 20%;
+    background: #6c63ff;
     opacity: 1;
-    position: absolute;
-    bottom: 7px;
-    left: 400px;
 }
 
-.btn-input i {
-    color: #6c63ff;
-}
 
-.btn-input i:hover {
+.btn-input:hover {
     color: #4d4d4d;
+}
+
+@media only screen and (max-width: 750px) { 
+    .btn-input {
+        left: 270px;
+    }
 }
 
 .footer {

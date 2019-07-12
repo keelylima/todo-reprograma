@@ -38,7 +38,6 @@ fetch(`https://app-server-todo.herokuapp.com/`,)
 
             btn.setAttribute('data-id', tarefa._id);
             btn.addEventListener('click', () => {
-                console.log('clicou')
                 fetch(`https://app-server-todo.herokuapp.com/${tarefa._id}`, {
                     method: 'DELETE',
                     headers: {

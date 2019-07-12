@@ -188,9 +188,15 @@ input:focus{
 
 .quebra {
     border: 1px solid #6c63ff;
-    width: 500px;
+    max-width: 500px;
     margin: 0 auto;
     margin-top: 100px;
+}
+
+@media only screen and (max-width: 750px) {
+    .quebra {
+        max-width: 200px;
+    }
 }
 
 .form {
